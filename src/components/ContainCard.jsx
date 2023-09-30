@@ -10,7 +10,8 @@ export default function ContainCard({movies}) {
                     image={backdrop_path}
                     title={title}
                     overview={overview}
-                    key={id} />
+                    key={id}
+                    id={id} />
                 )
             })}
         </Box>

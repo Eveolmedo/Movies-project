@@ -10,18 +10,18 @@ import ListItemText from '@mui/material/ListItemText';
 const navItems = ['Home', 'Ultimos lanzamientos', 'Populares'];
 
 const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(1),
-    width: 'auto',
-  },
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    '&:hover': {
+      backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(1),
+      width: 'auto',
+    },
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -78,9 +78,9 @@ export default function Header({ setInputSearch }) {
           </List>
           <Search>
             <StyledInputBase
-              placeholder="Search…"
-              onChange={handleChangeInput}
-              inputProps={{ 'aria-label': 'search' }}
+                placeholder="Search…"
+                onChange={handleChangeInput}
+                inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
         </Toolbar>

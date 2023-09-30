@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Header from "./components/Header"
 import useMovie from './components/useMovie'
 import ContainCard from './components/ContainCard'
+import DetailMovie from './components/DetailMovie';
 
 function App() {
   const [inputSearch, setInputSearch] = useState("")
@@ -19,7 +20,8 @@ function App() {
         <Routes>
           <Route path='/' element={
               <ContainCard movies={data}/>
-            }/>
+          }/>
+          <Route path='/detailMovie/:id' element={ <DetailMovie />}/>
         </Routes>
       </BrowserRouter>
     </>

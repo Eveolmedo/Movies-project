@@ -3,9 +3,11 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { Link } from "react-router-dom"
 
-export default function CardCharacter({ image, title, overview }) {
+export default function MovieCard({ image, title, overview, id }) {
   return (
+    <Link to={`/detailMovie/${id}`} style={{textDecoration: "none"}}>
     <Card sx={{ width: 250, marginBottom:"20px" }}>
       <CardMedia
         sx={{ height: 350 }}
@@ -17,5 +19,6 @@ export default function CardCharacter({ image, title, overview }) {
         </Typography>
       </CardContent>
     </Card>
+    </Link>
   );
 }

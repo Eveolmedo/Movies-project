@@ -5,15 +5,16 @@ import useMovie from './components/useMovie'
 import ContainCard from './components/ContainCard'
 import DetailMovie from './components/DetailMovie';
 import FilterMovies from './components/FilterMovies'
-import A from './components/a'
+import A from "./components/A"
 
 function App() {
   const [inputSearch, setInputSearch] = useState("")
+  const [currentPage, setCurrentPage] = useState(1)
   const { getData, data } = useMovie([])
 
   useEffect(() => {
-    getData(inputSearch !== "" ? `https://api.themoviedb.org/3/search/movie?language=es-ES&page=1&api_key=${import.meta.env.VITE_API_KEY}&query=${inputSearch}` : `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}`)
-  },  [inputSearch])
+    getData(inputSearch !== "" ? `https://api.themoviedb.org/3/search/movie?language=es-ES&page=${currentPage}&api_key=${import.meta.env.VITE_API_KEY}&query=${inputSearch}` : `https://api.themoviedb.org/3/discover/movie?language=es-ES&page=${currentPage}&api_key=${import.meta.env.VITE_API_KEY}`)
+  },  [inputSearch, currentPage])
 
   return (
     <>
@@ -21,11 +22,14 @@ function App() {
         <Header setInputSearch={setInputSearch}/>
         <Routes>
           <Route path='/' element={
-              <ContainCard movies={data}/>
+              <ContainCard 
+              movies={data}
+              setCurrentPage={setCurrentPage}
+              currentPage={currentPage}/>
           }/>
           <Route path='/detailMovie/:id' element={<DetailMovie />}/>
-          <Route path='/ultimosLanzamientos' element={<FilterMovies type="upcoming"/>}/>
-          <Route path='/mejorPuntuadas' element={<A type="top_rated"/>}/>
+          <Route path='/ultimosLanzamientos' element={<FilterMovies />}/>
+          <Route path='/mejorPuntuadas' element={<A />}/>
         </Routes>
       </BrowserRouter>
     </>

@@ -6,7 +6,7 @@ export default function FilterMovies() {
     const { getData, data } = useMovie([])
 
     useEffect(() => {
-        getData(`https://api.themoviedb.org/3/movie/upcoming?api_key=${import.meta.env.VITE_API_KEY}`)
+        getData(`https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_API_KEY}`)
     }, [])
 
     return (

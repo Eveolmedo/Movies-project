@@ -4,6 +4,8 @@ import Header from "./components/Header"
 import useMovie from './components/useMovie'
 import ContainCard from './components/ContainCard'
 import DetailMovie from './components/DetailMovie';
+import FilterMovies from './components/FilterMovies'
+import A from './components/a'
 
 function App() {
   const [inputSearch, setInputSearch] = useState("")
@@ -21,7 +23,9 @@ function App() {
           <Route path='/' element={
               <ContainCard movies={data}/>
           }/>
-          <Route path='/detailMovie/:id' element={ <DetailMovie />}/>
+          <Route path='/detailMovie/:id' element={<DetailMovie />}/>
+          <Route path='/ultimosLanzamientos' element={<FilterMovies type="upcoming"/>}/>
+          <Route path='/mejorPuntuadas' element={<A type="top_rated"/>}/>
         </Routes>
       </BrowserRouter>
     </>

@@ -6,6 +6,7 @@ import ContainCard from './components/ContainCard'
 import DetailMovie from './components/DetailMovie';
 import FilterMovies from './components/FilterMovies'
 import A from "./components/A"
+import Slider from './components/Slider'
 
 function App() {
   const [inputSearch, setInputSearch] = useState("")
@@ -21,6 +22,7 @@ function App() {
     <>
       <BrowserRouter>
         <Header setInputSearch={setInputSearch}/>
+        <Slider movies={data}/>
         <Routes>
           <Route path='/' element={
               <ContainCard 

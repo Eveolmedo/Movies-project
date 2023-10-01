@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
-import { useEffect} from "react"
+import { useEffect } from "react"
 import CardContent  from "@mui/material/CardContent"
-import  Typography  from "@mui/material/Typography"
+import Typography  from "@mui/material/Typography"
 import { Button } from "@mui/material"
 import Card from "@mui/material/Card"
 import { Link } from "react-router-dom"
@@ -17,32 +17,40 @@ export default function DetailMovie() {
   },  [id])
 
   return (
-    <div style={{
-        height: "100vh",
-        width: "full",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-    }}>
-        <Card 
-            sx={{ 
-                display:"flex",
-                height: "auto",
-                width: 800, 
-                boxShadow:"14px 14px 13px -6px rgba(0,0,0,0.50)",
-                }}>
-        <img src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`}/>
-        <CardContent component="div" sx={{margin: "60px 30px"}}>
-            <Typography gutterBottom variant="h5" component="div">
-            {data.original_title}
+    <Card
+      sx={{ 
+      display:"flex",
+      width: "100vw",
+      height: "100vh",
+      justifyContent: "center", 
+      backgroundImage: `url(https://image.tmdb.org/t/p/original//${data.backdrop_path})`,
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      }}>
+        <div style={{ position: "absolute", backgroundColor: "#000", opacity: .6, width: "100vw", height: "100vh"}}></div>
+        <CardContent sx={{ 
+          position:"relative",
+          display: "flex",
+          alignItems: "center",
+          width: "60vw",
+          justifyContent: "space-between",
+        }}>
+          <img style={{width: 300, height: 450}} src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`}/>
+          <CardContent sx={{width: 500, height: 450, color: "white"}}>
+            <Typography gutterBottom variant="h3">
+              {data.original_title}
+            </Typography>
+            <Typography sx={{width: 500}}>
+              {data.overview}
             </Typography>
             <div>
                 <Button sx={{backgroundColor:"#e0b65b", marginTop: "60px"}}>
-                <Link to="/" style={{textDecoration: "none"}}>Volver al Inicio</Link>
+                  <Link to="/" style={{textDecoration: "none"}}>Volver al Inicio</Link>
                 </Button>
             </div>
+          </CardContent>
         </CardContent>
-      </Card>
-    </div>
+    </Card>
+    
   )
 }

@@ -17,12 +17,14 @@ function App() {
     getData(inputSearch !== "" ? `https://api.themoviedb.org/3/search/movie?language=es-ES&page=${currentPage}&api_key=${import.meta.env.VITE_API_KEY}&query=${inputSearch}` : `https://api.themoviedb.org/3/discover/movie?language=es-ES&page=${currentPage}&api_key=${import.meta.env.VITE_API_KEY}`)
   },  [inputSearch, currentPage])
 
-  
   return (
     <>
       <BrowserRouter>
         <Header setInputSearch={setInputSearch}/>
-        <Slider movies={data}/>
+        <div style={{display: 'none'}}>
+        <Slider />
+
+        </div>
         <Routes>
           <Route path='/' element={
               <ContainCard 

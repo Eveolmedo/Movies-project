@@ -42,8 +42,8 @@ export default function Header({ setInputSearch }) {
   }
 
   return (
-    <Box>
-      <AppBar>
+    <Box sx={{marginBottom: 8}}>
+      <AppBar sx={{ backgroundImage: "linear-gradient(to right, #181B4A , #9985F3)"}}>
         <Toolbar sx={{ display: "flex", justifyContent:"space-between"}}>
           <Typography
               variant="h6"
@@ -69,7 +69,6 @@ export default function Header({ setInputSearch }) {
             <StyledInputBase
                 placeholder="Search…"
                 onChange={handleChangeInput}
-                inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
         </Toolbar>

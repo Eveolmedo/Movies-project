@@ -18,10 +18,6 @@ body {
   background-color: #254675;
 }
 
-header {
-  display: none;
-}
-
 /**
  * Render the `main` element consistently in IE.
  */

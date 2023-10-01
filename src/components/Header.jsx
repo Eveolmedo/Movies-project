@@ -54,14 +54,29 @@ export default function Header({ setInputSearch }) {
           </Typography>
           <List sx={{ width: "40%"}}>
               <ListItem disablePadding>
-                  <ListItemButton sx={{ justifyContent: 'center' }}>
-                    <Link to="/" style={{textDecoration: "none" }}>Home</Link>
+                  <ListItemButton sx={{ justifyContent: 'center'}}>
+                    <Link to="/" style={{
+                      textDecoration: "none", 
+                      fontFamily: "Roboto", 
+                      color: "white" }}>
+                        HOME
+                    </Link>
                   </ListItemButton>
                   <ListItemButton sx={{ justifyContent: 'center' }}>
-                    <Link to="/ultimosLanzamientos" style={{textDecoration: "none" }}>Ultimos Lanzamientos</Link>
+                    <Link to="/ultimosLanzamientos" style={{
+                      textDecoration: "none", 
+                      fontFamily: "Roboto", 
+                      color: "white" }}>
+                        LATEST RELEASES
+                    </Link>
                   </ListItemButton>
                   <ListItemButton sx={{ justifyContent: 'center' }}>
-                    <Link to="/mejorPuntuadas" style={{textDecoration: "none"}}>Mejor Puntuadas </Link>
+                    <Link to="/mejorPuntuadas" style={{
+                      textDecoration: "none", 
+                      fontFamily: "Roboto", 
+                      color: "white"}}>
+                        TOP RATED 
+                    </Link>
                   </ListItemButton>
               </ListItem>
           </List>

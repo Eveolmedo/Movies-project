@@ -4,11 +4,12 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Link } from "react-router-dom"
+import { Button } from "@mui/material"
 
-export default function MovieCard({ image, title, overview, id }) {
+export default function MovieCard({ image, title, id }) {
   return (
     <Link to={`/detailMovie/${id}`} style={{textDecoration: "none"}}>
-    <Card sx={{ width: 250, height: 480, marginBottom:"20px", backgroundColor: "#856795", textAlign: "center"}}>
+    <Card sx={{ width: 250, height: 450, marginBottom:"20px", backgroundColor: "#856795", textAlign: "center", color: "white"}}>
       <CardMedia
         sx={{ height: 350 }}
         image={`https://image.tmdb.org/t/p/w500/${image}`}

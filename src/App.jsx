@@ -14,7 +14,7 @@ function App() {
   const { getData, data, totalPages } = useMovie([])
 
   useEffect(() => {
-    getData(inputSearch !== "" ? `https://api.themoviedb.org/3/search/movie?language=es-ES&page=${currentPage}&api_key=${import.meta.env.VITE_API_KEY}&query=${inputSearch}` : `https://api.themoviedb.org/3/discover/movie?language=es-ES&page=${currentPage}&api_key=${import.meta.env.VITE_API_KEY}`)
+    getData(inputSearch !== "" ? `https://api.themoviedb.org/3/search/movie?page=${currentPage}&api_key=${import.meta.env.VITE_API_KEY}&query=${inputSearch}` : `https://api.themoviedb.org/3/discover/movie?page=${currentPage}&api_key=${import.meta.env.VITE_API_KEY}`)
   },  [inputSearch, currentPage])
 
   return (

@@ -10,12 +10,13 @@ import A from "./components/A"
 function App() {
   const [inputSearch, setInputSearch] = useState("")
   const [currentPage, setCurrentPage] = useState(1)
-  const { getData, data } = useMovie([])
+  const { getData, data, totalPages } = useMovie([])
 
   useEffect(() => {
     getData(inputSearch !== "" ? `https://api.themoviedb.org/3/search/movie?language=es-ES&page=${currentPage}&api_key=${import.meta.env.VITE_API_KEY}&query=${inputSearch}` : `https://api.themoviedb.org/3/discover/movie?language=es-ES&page=${currentPage}&api_key=${import.meta.env.VITE_API_KEY}`)
   },  [inputSearch, currentPage])
 
+  
   return (
     <>
       <BrowserRouter>
@@ -25,7 +26,8 @@ function App() {
               <ContainCard 
               movies={data}
               setCurrentPage={setCurrentPage}
-              currentPage={currentPage}/>
+              currentPage={currentPage}
+              totalPages={totalPages}/>
           }/>
           <Route path='/detailMovie/:id' element={<DetailMovie />}/>
           <Route path='/ultimosLanzamientos' element={<FilterMovies />}/>

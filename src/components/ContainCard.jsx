@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import MovieCard from "./MovieCard"
 import Pagination from "./Pagination.jsx";
 
-export default function ContainCard({ movies, setCurrentPage, currentPage }) {
+export default function ContainCard({ movies, setCurrentPage, currentPage, totalPages }) {
     return (
         <>
             <Box sx={{display:"flex", justifyContent:"space-around", flexWrap:"wrap", padding:"20px"  }}>
@@ -17,7 +17,7 @@ export default function ContainCard({ movies, setCurrentPage, currentPage }) {
                     )
                 })}
             </Box>
-            <Pagination setCurrentPage={setCurrentPage} currentPage={currentPage}/>
+            <Pagination setCurrentPage={setCurrentPage} currentPage={currentPage} totalPages={totalPages}/>
         </>
     )
 }

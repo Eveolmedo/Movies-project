@@ -63,7 +63,7 @@ export default function Header({ setInputSearch }) {
                     </Link>
                   </ListItemButton>
                   <ListItemButton sx={{ justifyContent: 'center' }}>
-                    <Link to="/ultimosLanzamientos" style={{
+                    <Link to="/nowPlaying" style={{
                       textDecoration: "none", 
                       fontFamily: "Roboto", 
                       color: "white" }}>
@@ -71,7 +71,7 @@ export default function Header({ setInputSearch }) {
                     </Link>
                   </ListItemButton>
                   <ListItemButton sx={{ justifyContent: 'center' }}>
-                    <Link to="/mejorPuntuadas" style={{
+                    <Link to="/topRated" style={{
                       textDecoration: "none", 
                       fontFamily: "Roboto", 
                       color: "white"}}>

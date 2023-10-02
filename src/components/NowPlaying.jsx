@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import useMovie from "./useMovie"
 import ContainCard from './ContainCard'
 
-export default function FilterMovies() {
+export default function NowPlaying() {
     const { getData, data, totalPages } = useMovie([])
     const [currentPage, setCurrentPage] = useState(1)
 
@@ -11,12 +11,15 @@ export default function FilterMovies() {
     }, [currentPage, totalPages])
 
     return (
-        <ContainCard 
-        movies={data}
-        setCurrentPage={setCurrentPage}
-        currentPage={currentPage}
-        totalPages={totalPages}
-        />
+        <>
+            <h1 style={{padding: 10, textAlign: "center", fontFamily: "Roboto", color: "white"}}>Latest releases</h1>
+            <ContainCard 
+            movies={data}
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+            totalPages={totalPages}
+            />
+        </>
     )
 
 }

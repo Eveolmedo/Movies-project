@@ -7,17 +7,17 @@ import ListItemButton from '@mui/material/ListItemButton';
 import { Link } from "react-router-dom"
 
 const Search = styled('div')(({ theme }) => ({
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(1),
-      width: '250px',
-    },
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  '&:hover': {
+  backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginLeft: 0,
+  width: '100%',
+  [theme.breakpoints.up('sm')]: {
+    marginLeft: theme.spacing(1),
+    width: '250px',
+  },
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -36,7 +36,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Header({ setInputSearch }) {
+export default function Header({ setInputSearch, disabled }) {
   const handleChangeInput = (e) =>{
     setInputSearch(e.target.value)
   }
@@ -46,9 +46,9 @@ export default function Header({ setInputSearch }) {
       <AppBar sx={{ backgroundImage: "linear-gradient(to right, #181B4A , #9985F3)"}}>
         <Toolbar sx={{ display: "flex", justifyContent:"space-between"}}>
           <Typography
-              variant="h6"
-              noWrap
-              component="div"
+            variant="h6"
+            noWrap
+            component="div"
           >
             Movies app
           </Typography>
@@ -84,6 +84,7 @@ export default function Header({ setInputSearch }) {
             <StyledInputBase
                 placeholder="Search…"
                 onChange={handleChangeInput}
+                disabled={disabled}
             />
           </Search>
         </Toolbar>

@@ -7,7 +7,6 @@ import Card from "@mui/material/Card"
 import { Link } from "react-router-dom"
 import useMovie from "./useMovie"
 
-
 export default function DetailMovie() {
   const { id } = useParams()
   const { getData, data } = useMovie([])
@@ -51,6 +50,5 @@ export default function DetailMovie() {
           </CardContent>
         </CardContent>
     </Card>
-    
   )
 }

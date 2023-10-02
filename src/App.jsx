@@ -12,7 +12,6 @@ function App() {
   const [inputSearch, setInputSearch] = useState("")
   const [currentPage, setCurrentPage] = useState(1)
   const { getData, data, totalPages } = useMovie([])
-  const [hideElement, setHideElement] = useState(false)
 
   useEffect(() => {
     getData(inputSearch !== "" ? `https://api.themoviedb.org/3/search/movie?page=${currentPage}&api_key=${import.meta.env.VITE_API_KEY}&query=${inputSearch}` : `https://api.themoviedb.org/3/discover/movie?page=${currentPage}&api_key=${import.meta.env.VITE_API_KEY}`)
@@ -22,17 +21,19 @@ function App() {
     <>
       <BrowserRouter>
         <Header setInputSearch={setInputSearch}/>
-        <Slider />
         <Routes>
           <Route path='/' element={
+            <>
+              <Slider />
               <ContainCard 
               movies={data}
               setCurrentPage={setCurrentPage}
               currentPage={currentPage}
               totalPages={totalPages}/>
+            </>
           }/>
           <Route path='/detailMovie/:id' element={<DetailMovie />}/>
-          <Route path='/nowPlaying' element={<NowPlaying />} />
+          <Route path='/nowPlaying' element={<NowPlaying />}/>
           <Route path='/topRated' element={<TopRated />}/>
         </Routes>
       </BrowserRouter>
